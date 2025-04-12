@@ -104,8 +104,8 @@ Tento projekt implementuje modulární webový server určený pro rychlé a fle
 
 ```bash
 # Klonování repozitáře
-git clone https://github.com/github/qlira-web-server.git
-cd rust-web-server
+git clone https://github.com/9hb/qlira-web-server.git
+cd qlira-web-server
 
 # Kompilace projektu
 cargo build --release
@@ -156,4 +156,4 @@ Server poskytuje REST API pro správu konfigurace:
 
 ## Licence
 
-Tento projekt je licensován pod [MIT licencí](LICENSE).
+Tento projekt je licensován pod [AGPL-3.0 licencí](LICENSE).
