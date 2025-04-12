@@ -1,7 +1,7 @@
 use actix_web::{ web, App, HttpServer };
 use std::sync::Arc;
-use rust_web_server::config::{ ServerConfig, ConfigManager };
-use rust_web_server::handlers::{
+use qlira_web_server::config::{ ServerConfig, ConfigManager };
+use qlira_web_server::handlers::{
     static_files::serve_static_file,
     php_handler::handle_php,
     javascript_handler::handle_js,
@@ -10,9 +10,9 @@ use rust_web_server::handlers::{
     update_config,
     reload_config,
 };
-use rust_web_server::middleware::logger::Logger;
-use rust_web_server::middleware::error_handler;
-use rust_web_server::server::http::start_http_server;
+use qlira_web_server::middleware::logger::Logger;
+use qlira_web_server::middleware::error_handler;
+use qlira_web_server::server::http::start_http_server;
 use futures::future::join;
 
 const CONFIG_PATH: &str = "config/server.toml";
