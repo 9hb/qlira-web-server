@@ -1,4 +1,4 @@
-# Rust Web Server
+# Qlira Web Server
 
 Vysokovýkonný webový server napsaný v Rustu pomocí frameworku Actix Web s podporou statických souborů, PHP skriptů, JavaScript optimalizací a WebSocketů.
 
