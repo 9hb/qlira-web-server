@@ -1,0 +1,38 @@
+[package]
+name = "qlira-web-server"
+version = "0.1.1"
+edition = "2021"
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+actix-web = { version = "4.3", features = ["rustls-0_23"] }
+actix = "0.13"
+actix-web-actors = "4.2"
+warp = "0.3.7"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = "0.8.20"
+log = "0.4"
+env_logger = "0.11.8"
+
+# config
+notify = "8.0.0"
+
+# staticky soubory
+mime_guess = "2.0"
+lazy_static = "1.4"
+ring = "0.17.14"
+hex = "0.4.3"
+brotli = "7.0.0"
+flate2 = "1.0"
+
+# javascript
+minify-js = "0.6.0"
+chrono = "0.4"
+
+# php
+futures = "0.3"
+wait-timeout = "0.2"
+
+# websockety
+rand = "0.8.0" # s 0.9.0 byly problemy
