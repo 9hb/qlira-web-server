@@ -1,6 +1,6 @@
-use actix_web::{ web, App, HttpServer, HttpResponse, Responder, HttpRequest };
+use actix_web::{ web, App, HttpServer, HttpResponse, Responder };
 use std::sync::Arc;
-use crate::config::{ ServerConfig, ConfigManager };
+use crate::config::{ ConfigManager };
 use crate::handlers::{
     static_files::serve_static_file,
     php_handler::handle_php,
@@ -36,10 +36,7 @@ pub async fn start_http_server(config_manager: Arc<ConfigManager>) -> std::io::R
         .run().await
 }
 
-async fn handle_404(
-    req: HttpRequest,
-    config_manager: web::Data<Arc<ConfigManager>>
-) -> impl Responder {
+async fn handle_404(config_manager: web::Data<Arc<ConfigManager>>) -> impl Responder {
     let config = config_manager.get_config();
 
     if config.custom_error_pages {

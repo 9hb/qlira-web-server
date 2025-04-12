@@ -1,4 +1,4 @@
-use actix_web::{ dev::ServiceRequest, dev::ServiceResponse, web, HttpRequest, Error };
+use actix_web::{ dev::ServiceRequest, dev::ServiceResponse, Error };
 use std::time::Instant;
 use std::future::Future;
 use std::pin::Pin;

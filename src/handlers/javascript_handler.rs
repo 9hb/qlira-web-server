@@ -1,4 +1,4 @@
-use actix_web::{ web, HttpResponse, Responder, Error, HttpRequest };
+use actix_web::{ web, HttpResponse, Responder, HttpRequest };
 use std::fs;
 use std::path::{ Path, PathBuf };
 use minify_js::{ minify, TopLevelMode };

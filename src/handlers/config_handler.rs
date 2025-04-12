@@ -1,5 +1,5 @@
-use actix_web::{ web, HttpRequest, HttpResponse, Responder };
-use serde::{ Deserialize, Serialize };
+use actix_web::{ web, HttpResponse, Responder };
+use serde::{ Deserialize };
 use std::sync::Arc;
 use crate::config::{ ServerConfig, ConfigManager };
 

@@ -1,9 +1,8 @@
-use actix_web::{ web, HttpRequest, HttpResponse, Responder, Error };
+use actix_web::{ web, HttpRequest, HttpResponse, Responder };
 use std::fs;
 use std::io;
 use std::path::{ Path, PathBuf };
-use std::time::{ SystemTime, UNIX_EPOCH };
-use futures::future::{ ready, Ready };
+use std::time::{ UNIX_EPOCH };
 use mime_guess::from_path;
 use std::io::Read;
 use std::sync::Arc;
@@ -13,13 +12,7 @@ use brotli::CompressorReader;
 use flate2::read::{ GzEncoder, DeflateEncoder };
 use flate2::Compression;
 use std::collections::HashMap;
-use std::str::FromStr;
 use crate::config::ConfigManager;
-
-// konfigurace pro obsluhu statickych souboru
-const STATIC_ROOT: &str = "static";
-const MAX_CACHE_AGE: u32 = 86400; // 1 den (86400 sekund)
-const MAX_FILE_SIZE: usize = 10 * 1024 * 1024; // 10MB
 
 // mapovani pripony souboru na dobu trvani cache (v sekundach)
 lazy_static::lazy_static! {
@@ -295,15 +288,6 @@ fn is_compressible(content_type: &str) -> bool {
     ];
 
     compressible_types.iter().any(|&t| content_type.starts_with(t))
-}
-
-fn get_cache_duration(path: &str) -> u32 {
-    let ext = Path::new(path)
-        .extension()
-        .and_then(|e| e.to_str())
-        .unwrap_or("");
-
-    *CACHE_POLICY.get(ext).unwrap_or(&MAX_CACHE_AGE)
 }
 
 fn compress_brotli(content: &[u8]) -> Result<Vec<u8>, io::Error> {
